@@ -34,6 +34,12 @@ appraise 'spree-3-7' do
   gem 'rails-controller-testing', '~> 1.0.1'
 end
 
+
+appraise 'spree-4-0' do
+  gem 'spree', '~> 4.0.1'
+  gem 'spree_auth_devise', '~> 4.0.0'
+  gem 'rails-controller-testing', '~> 1.0.1'
+end
 appraise 'spree-master' do
   gem 'spree', github: 'spree/spree', branch: 'master'
   gem 'spree_auth_devise', github: 'spree/spree_auth_devise', branch: 'master'
