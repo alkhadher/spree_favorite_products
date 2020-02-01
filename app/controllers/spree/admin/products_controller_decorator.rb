@@ -1,6 +1,8 @@
-Spree::Admin::ProductsController.class_eval do
+module Spree::Admin::ProductsControllerDecorator
 
-  before_action :set_variant, only: :favorite_users
+  def self.prepended(base)
+    base.before_action :set_variant, only: :favorite_users
+  end
 
   def favorite_users
     if params[:type] == 'variant'
@@ -38,3 +40,4 @@ Spree::Admin::ProductsController.class_eval do
     end
 
 end
+::Spree::Admin::ProductsController.prepend Spree::Admin::ProductsControllerDecorator
