@@ -36,7 +36,7 @@ module Spree::Admin::ProductsControllerDecorator
 
       @favorite_variant_users = Spree::User.joins(:favorite_variants).
                            where(spree_favorites: { favoritable_id: id, favoritable_type: 'Spree::Variant' }).
-                           select('spree_users.*, spree_favorites.favoritable_id').page(params[:favorite_variant_users_page]).per(Spree::Config.favorite_users_per_page)
+                           select('spree_users.*, spree_favorites.favoritable_id').page(params[:favorite_variant_users_page]).per(Spree::Config[:admin_products_per_page])
     end
 
 end
